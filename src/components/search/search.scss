@@ -1,0 +1,15 @@
+@import "../../shared/styles/variables.scss";
+
+.search{
+    display: flex;
+    justify-content: center;
+    .control{
+        width: 500px;
+        input{
+            background-color: $gray;
+            color: #fff;
+            border: none;
+            padding: 5px 1px;
+        }
+    }
+}

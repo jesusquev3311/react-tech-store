@@ -1,6 +1,6 @@
 import './App.scss';
 import { Header } from "./components/header/Header";
-import { Products } from './views/Produtcs';
+import { Products } from './views/Products/Produtcs';
 
 function App() {
   return (
