@@ -3,6 +3,8 @@ import "./ProductItem.scss";
 export const ProductItem = (props) => {
     const { id, brand, model, price, imgUrl } = props.product;
 
+    const isSoldOut = price > 0 ? `$ ${price}` : "Sold Out";
+
     return (
         <div className="column is-3">
             <div className="product-item card">
@@ -21,7 +23,7 @@ export const ProductItem = (props) => {
 
                     <div className="card-content">
                         <div className="content">
-                            <p className="price">$ { price || "Sold Out"}</p>
+                            <p className="price"> { isSoldOut }</p>
                         </div>
                     </div>
                 </a>
