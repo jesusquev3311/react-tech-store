@@ -1,0 +1,15 @@
+@import "../../shared/styles/variables.scss";
+
+.navbar{
+    background-color: $black;
+    .navbar-item{
+        color: #fff;
+        &:hover{
+            background-color: $black;
+            color: $orange;
+        }
+        &:actvie{
+            background-color: $orange;
+        }
+    }
+}
