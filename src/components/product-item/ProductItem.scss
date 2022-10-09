@@ -1,0 +1,31 @@
+@import "../../shared/styles/variables.scss";
+
+.product-item {
+    background-color: $gray;
+    padding: 15px 10px;
+    border-radius: 15px;
+    text-align: center;
+    .image{
+        max-height: 158px;
+        background-color: $ligth-gray;
+        border-radius: 15px;
+        img{
+            object-fit: contain;
+            padding: 15px;
+        }
+    }
+    .media-content {
+        margin-top: 30px;
+        .title{
+            color: #fff;
+            font-size: 23px;;
+        }
+        .subtitle{
+            color: $blue;
+            font-size: 20px;
+        }
+    }
+    .price{
+        color: $red;
+    }
+}
