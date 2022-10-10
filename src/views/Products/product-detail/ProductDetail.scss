@@ -1,0 +1,13 @@
+.product-detail{
+    &__image{
+        height: 500px;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .title{
+        color: #fff;
+    }
+}

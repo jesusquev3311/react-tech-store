@@ -1,3 +1,4 @@
+import "./ProductDetail.scss"
 import {useParams} from "react-router-dom"
 
 export const  ProductDetail = (props) => {

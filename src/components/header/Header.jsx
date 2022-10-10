@@ -21,10 +21,6 @@ export const Header = ()=>{
                     <a  href="/" className="navbar-item">
                         Home
                     </a>
-
-                    <a href="/" className="navbar-item">
-                        Documentation
-                    </a>
                     </div>
 
                     <div className="navbar-end">
