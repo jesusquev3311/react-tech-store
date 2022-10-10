@@ -5,6 +5,13 @@
     padding: 15px 10px;
     border-radius: 15px;
     text-align: center;
+    transition: all .3s;
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: -3px 22px 168px 29px rgba(0,0,0,0.94);
+        -webkit-box-shadow: -3px 22px 168px 29px rgba(0,0,0,0.94);
+        -moz-box-shadow: -3px 22px 168px 29px rgba(0,0,0,0.94);
+    }
     .image{
         max-height: 158px;
         background-color: $ligth-gray;
@@ -25,7 +32,10 @@
             font-size: 20px;
         }
     }
-    .price{
-        color: $red;
+    .card-content{
+        padding: 5px;
+        .price{
+            color: $red;
+        }
     }
 }

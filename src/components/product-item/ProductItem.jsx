@@ -8,7 +8,7 @@ export const ProductItem = (props) => {
     return (
         <div className="column is-3">
             <div className="product-item card">
-                <a href="/">
+                <a href={`products/${id}`}>
 
                     <div className="card-image">
                         <figure className="image is-4by3">

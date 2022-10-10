@@ -1,0 +1,10 @@
+.error-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    i{
+        font-size: 45px;
+    }
+}

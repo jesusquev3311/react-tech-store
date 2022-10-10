@@ -1,12 +1,13 @@
-import './App.scss';
 import { Header } from "./components/header/Header";
-import { Products } from './views/Products/Produtcs';
+import { Outlet } from "react-router-dom";
+import './App.scss';
 
 function App() {
+
   return (
     <div className="App">
       <Header></Header>
-      <Products></Products>
+      <Outlet></Outlet>
     </div>
   );
 }
