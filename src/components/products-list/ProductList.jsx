@@ -6,7 +6,7 @@ import { Search } from "../search/Search";
 export const ProductList = (props) => {
     const { products } = props;
 
-    const [productsItems, SetProductsItems] = useState([...products]);
+    const [productItems, SetProductsItems] = useState(products);
 
     const searchHandler = ({target: { value}}) => {
 
@@ -27,7 +27,13 @@ export const ProductList = (props) => {
         }
     }
 
-    const productsList = productsItems.map(product => <ProductItem  key={product.id} product={product} />);
+    useEffect(() =>{
+        if(productItems.length === 0) {
+            SetProductsItems(products)
+        }
+    }, [products, productItems]);
+
+    const productsList = productItems.map(product => <ProductItem  key={product.id} product={product} />);
 
     return (
         <div className="product-list">
