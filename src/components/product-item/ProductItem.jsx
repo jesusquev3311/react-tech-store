@@ -1,4 +1,5 @@
 import "./ProductItem.scss";
+import { Link } from "react-router-dom";
 
 export const ProductItem = (props) => {
     const { id, brand, model, price, imgUrl } = props.product;
@@ -8,7 +9,7 @@ export const ProductItem = (props) => {
     return (
         <div className="column is-3">
             <div className="product-item card">
-                <a href={`products/${id}`}>
+                <Link to={`products/${id}`}>
 
                     <div className="card-image">
                         <figure className="image is-4by3">
@@ -26,7 +27,7 @@ export const ProductItem = (props) => {
                             <p className="price"> { isSoldOut }</p>
                         </div>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     );

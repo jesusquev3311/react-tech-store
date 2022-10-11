@@ -5,7 +5,7 @@ export const Header = ()=>{
         <header className="App-header">
             <nav className="navbar container" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="https://bulma.io">
+                    <a className="navbar-item" href="/">
                         <img src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28"  alt="logo"/>
                     </a>
 
