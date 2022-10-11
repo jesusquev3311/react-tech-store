@@ -1,10 +1,25 @@
 import "./ProductDetail.scss"
 import {useParams} from "react-router-dom"
+import { useEffect, useState } from 'react';
+import * as ProductService from "../../../Services/products";
 
-export const  ProductDetail = (props) => {
+export const  ProductDetail = () => {
+    const [product, updateProduct] = useState([]);
+
     const {productId} = useParams()
-    const { products } = props;
-    const product = products.find(prod => prod.id === productId)
+
+    const productProvider = async () => {
+        const data = await ProductService.getOne(productId)
+            .then(resp => resp.json())
+            .then(items => updateProduct(items));
+    
+        return data;
+    };
+    
+    
+    useEffect(() => {
+        productProvider()
+    });
     
     const { id, brand, model, price, imgUrl } = product;
 

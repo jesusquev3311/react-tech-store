@@ -1,7 +1,6 @@
 const URL = process.env.REACT_APP_MAIN_URL;
 
 export const getAll = async () => {
-    let products = [];
 
     const productsData =   await fetch(URL, {
         method: "GET",
@@ -9,7 +8,18 @@ export const getAll = async () => {
             "content-type": "application/json",
         }
     })
-    .then(resp => resp.json());
 
     return productsData;    
+};
+
+export const getOne = async (id) => {
+
+    const productData =   await fetch(`${URL}${id}`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+        }
+    })
+
+    return productData;    
 };

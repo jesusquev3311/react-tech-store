@@ -1,4 +1,5 @@
 import './App.scss';
+import { useEffect, useState } from 'react';
 import { Header } from "./components/header/Header";
 import {
   BrowserRouter,
@@ -8,19 +9,31 @@ import {
 import { ErrorPage } from "./views/404/404";
 import { Products } from './views/Products/Produtcs';
 import { ProductDetail } from './views/Products/product-detail/ProductDetail';
-import DATA from './shared/data.json';
+import * as ProductService from "./Services/products";
 
 function App() {
-
-  const products = DATA;
+  const [products, updateProducts] = useState([]);
  
+  const porductsProvider = async () => {
+    const data = await ProductService.getAll()
+      .then(resp => resp.json())
+      .then(items => updateProducts(items));
+
+      return data;
+  };
+
+
+  useEffect(() => {
+      porductsProvider()
+  }, []);
+
   return (
     <div className="App">
       <Header></Header>
       <BrowserRouter >
         <Routes>
               <Route path='/'    element={<Products products={products} />} errorElement={<ErrorPage />} />
-              <Route path='/products/:productId'    element={<ProductDetail products={products} />} errorElement={<ErrorPage />} />
+              <Route path='/products/:productId'    element={<ProductDetail  />} errorElement={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>
