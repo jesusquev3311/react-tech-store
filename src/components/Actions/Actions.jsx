@@ -3,8 +3,8 @@ import "./Actions.scss";
 export const Actions = (props) => {
     const { items } = props;
 
-    const colors = items?.colors.map(color => (<option>{color.name}</option>))
-    const storages = items?.storages.map(storage => (<option>{storage.name}</option>))
+    const colors = items?.colors.map(color => (<option key={color.name} value={color.code}>{color.name}</option>))
+    const storages = items?.storages.map(storage => (<option key={storage.name} value={storage.code}>{storage.name}</option>))
 
     return (
         <div className="actions-form">
@@ -41,7 +41,7 @@ export const Actions = (props) => {
 
                 <div className="field">
                     <div className="control">
-                        <button className="button is-danger is-large" onClick= { props.addToCartHandler } >Add to cart</button>
+                        <button className="button is-danger is-large" onClick= { props.addToCartHandler } type="button">Add to cart</button>
                     </div>
                 </div>
             </form>

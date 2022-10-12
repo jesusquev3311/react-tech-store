@@ -18,7 +18,7 @@ export const  ProductDetail = () => {
         return data;
     };
 
-    const addToCartHandler = (target) =>{
+    const addToCartHandler =  (target) =>{
         const { id, colorCode, storageCode} = target;
         const item = {
             id,
