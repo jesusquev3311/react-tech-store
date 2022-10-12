@@ -5,7 +5,7 @@ import * as ProductService from "../../../Services/products";
 import { Features } from "../../../components/Features/Features";
 import { Actions } from "../../../components/Actions/Actions";
 
-export const  ProductDetail = () => {
+export const  ProductDetail = (props) => {
     const [product, updateProduct] = useState([]);
 
     const {productId} = useParams()
@@ -13,20 +13,38 @@ export const  ProductDetail = () => {
     const productProvider = async () => {
         const data = await ProductService.getOne(productId)
             .then(resp => resp.json())
-            .then(items => updateProduct(items));
+            .then(items => updateProduct({
+                ...items,
+                colorCode: items.colorCode || items.options.colors[0].code,
+                storageCode: items.storageCode || items.options.storages[0].code,
+            }));
     
         return data;
     };
 
     const addToCartHandler =  ({target}) =>{
         const {name, value} = target;
-        updateProduct((prev) => {
-            return {
-                ...prev,
-                [name]: value
-            }
-        });
-        return ProductService.addToCart(product);
+
+        if (name !== "submit") {
+            updateProduct((prev) => {
+                return {
+                    ...prev,
+                    [name]: value
+                }
+            });
+
+            return
+        }
+
+        const {id, colorCode, storageCode} = product;
+
+        return ProductService.addToCart({
+            id,
+            colorCode,
+            storageCode
+        })
+        .then(resp => resp.json())
+        .then(value => props.cartCount(value.count));
     }
     
     

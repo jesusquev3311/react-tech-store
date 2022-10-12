@@ -17,7 +17,7 @@ export const Actions = (props) => {
                         <div className="field">
                             <div className="control">
                                 <div className="select">
-                                    <select name="storages">
+                                    <select name="storages" onChange={props.addToCartHandler}>
                                         { storages }
                                     </select>
                                 </div>
@@ -30,7 +30,7 @@ export const Actions = (props) => {
                             <div className="field">
                                 <div className="control">
                                     <div className="select">
-                                        <select name="colors">
+                                        <select name="colors" onChange={props.addToCartHandler}>
                                             { colors}
                                         </select>
                                     </div>
@@ -41,7 +41,7 @@ export const Actions = (props) => {
 
                 <div className="field">
                     <div className="control">
-                        <button className="button is-danger is-large" onClick= { props.addToCartHandler } type="button">Add to cart</button>
+                        <button className="button is-danger is-large" onClick= { props.addToCartHandler } type="button" name="submit">Add to cart</button>
                     </div>
                 </div>
             </form>
