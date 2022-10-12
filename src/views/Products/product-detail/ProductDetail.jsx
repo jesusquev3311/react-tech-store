@@ -15,8 +15,8 @@ export const  ProductDetail = () => {
             .then(resp => resp.json())
             .then(items => updateProduct({
                 ...items,
-                colorCode: items.options.colors[0].code,
-                storageCode: items.options.storages[0].code,
+                colorCode: items.colorCode || items.options.colors[0].code,
+                storageCode: items.storageCode || items.options.storages[0].code,
             }));
     
         return data;
@@ -32,14 +32,16 @@ export const  ProductDetail = () => {
                     [name]: value
                 }
             });
+            console.log(product.storageCode)
             return
         }
 
+        const {id, colorCode, storageCode} = product;
 
         return ProductService.addToCart({
-            id: "ZmGrkLRPXOTpxsU4jjAcv",
-            colorCode: 2000,
-            storageCode: 2000,
+            id,
+            colorCode,
+            storageCode
         });
     }
     
