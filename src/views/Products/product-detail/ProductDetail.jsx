@@ -13,20 +13,34 @@ export const  ProductDetail = () => {
     const productProvider = async () => {
         const data = await ProductService.getOne(productId)
             .then(resp => resp.json())
-            .then(items => updateProduct(items));
+            .then(items => updateProduct({
+                ...items,
+                colorCode: items.options.colors[0].code,
+                storageCode: items.options.storages[0].code,
+            }));
     
         return data;
     };
 
     const addToCartHandler =  ({target}) =>{
         const {name, value} = target;
-        updateProduct((prev) => {
-            return {
-                ...prev,
-                [name]: value
-            }
+
+        if (name !== "submit") {
+            updateProduct((prev) => {
+                return {
+                    ...prev,
+                    [name]: value
+                }
+            });
+            return
+        }
+
+
+        return ProductService.addToCart({
+            id: "ZmGrkLRPXOTpxsU4jjAcv",
+            colorCode: 2000,
+            storageCode: 2000,
         });
-        return ProductService.addToCart(product);
     }
     
     
