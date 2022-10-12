@@ -18,14 +18,15 @@ export const  ProductDetail = () => {
         return data;
     };
 
-    const addToCartHandler =  (target) =>{
-        const { id, colorCode, storageCode} = target;
-        const item = {
-            id,
-            colorCode,
-            storageCode,
-        };
-        return ProductService.addToCart(item);
+    const addToCartHandler =  ({target}) =>{
+        const {name, value} = target;
+        updateProduct((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        });
+        return ProductService.addToCart(product);
     }
     
     
