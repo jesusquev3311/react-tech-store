@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom"
 import { useEffect, useState } from 'react';
 import * as ProductService from "../../../Services/products";
 import { Features } from "../../../components/Features/Features";
+import { Actions } from "../../../components/Actions/Actions";
 
 export const  ProductDetail = () => {
     const [product, updateProduct] = useState([]);
@@ -16,6 +17,10 @@ export const  ProductDetail = () => {
     
         return data;
     };
+
+    const addToCartHandler = (target) =>{
+        return
+    }
     
     
     useEffect(() => {
@@ -24,8 +29,8 @@ export const  ProductDetail = () => {
         }
     });
     
-    const { id, brand, model, price, imgUrl } = product;
-
+    const { id, brand, model, price, imgUrl, options } = product;
+    console.log(brand);
     const isSoldOut = price > 0 ? `$ ${price}` : "Sold Out";
 
     return (
@@ -48,6 +53,7 @@ export const  ProductDetail = () => {
 
                         <div className="product-detail__actions info">
                             <h4 className="title is-4">Actions:</h4>
+                            <Actions items={options} addToCartHandler={addToCartHandler}></Actions>
                         </div>
                     </div>
                 </div>

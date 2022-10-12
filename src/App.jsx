@@ -22,6 +22,8 @@ function App() {
       return data;
   };
 
+  let cart = [];
+
 
   useEffect(() => {
       porductsProvider()
@@ -29,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header></Header>
+      <Header cart={cart}></Header>
       <BrowserRouter >
         <Routes>
               <Route path='/'    element={<Products products={products} />} errorElement={<ErrorPage />} />

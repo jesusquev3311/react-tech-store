@@ -1,6 +1,9 @@
 import "./Header.scss"
 
-export const Header = ()=>{
+export const Header = (props)=>{
+    const { cart } = props;
+
+    const productCount = cart.length;
     return (
         <header className="App-header">
             <nav className="navbar container" role="navigation" aria-label="main navigation">
@@ -26,9 +29,10 @@ export const Header = ()=>{
                     <div className="navbar-end">
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a  href="/" className="button ">
-                                <strong>Sign up</strong>
-                            </a>
+                            <div className="cart">
+                                <span className="count">{productCount}</span>
+                                <i class="fas fa-shopping-cart "></i>
+                            </div>
                         </div>
                     </div>
                     </div>

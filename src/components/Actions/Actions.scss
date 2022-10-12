@@ -1,0 +1,12 @@
+@import "../../shared/styles/variables.scss";
+
+.actions-form{
+    .label{
+        color: $blue;
+    }
+    .button {
+        width: 100%;
+        margin: 20px 0;
+        background-color: $red;
+    }
+}

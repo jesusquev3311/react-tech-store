@@ -12,4 +12,12 @@
             background-color: $orange;
         }
     }
+    .cart{
+        color: $red;
+        font-size: 25px;
+        .count{
+            color: #fff;
+            margin: 0 10px;
+        }
+    }
 }
