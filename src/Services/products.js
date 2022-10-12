@@ -14,7 +14,7 @@ export const getAll = async () => {
 
 export const getOne = async (id) => {
 
-    const productData =   await fetch(`${URL}${id}`, {
+    const productData =   await fetch(`${URL}/${id}`, {
         method: "GET",
         headers: {
             "content-type": "application/json",
@@ -23,3 +23,15 @@ export const getOne = async (id) => {
 
     return productData;    
 };
+
+export const addToCart = async (item) => {
+    const productData =   await fetch(`${URL}/cart`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: item,
+    })
+
+    return productData;    
+}

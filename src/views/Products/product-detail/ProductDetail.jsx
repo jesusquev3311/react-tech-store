@@ -19,18 +19,24 @@ export const  ProductDetail = () => {
     };
 
     const addToCartHandler = (target) =>{
-        return
+        const { id, colorCode, storageCode} = target;
+        const item = {
+            id,
+            colorCode,
+            storageCode,
+        };
+        return ProductService.addToCart(item);
     }
     
     
     useEffect(() => {
-        if (product.length === 0) {
+        if ( product.length === 0) {
             productProvider()
         }
     });
-    
+
     const { id, brand, model, price, imgUrl, options } = product;
-    console.log(brand);
+
     const isSoldOut = price > 0 ? `$ ${price}` : "Sold Out";
 
     return (

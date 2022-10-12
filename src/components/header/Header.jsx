@@ -31,7 +31,7 @@ export const Header = (props)=>{
                         <div className="buttons">
                             <div className="cart">
                                 <span className="count">{productCount}</span>
-                                <i class="fas fa-shopping-cart "></i>
+                                <i className="fas fa-shopping-cart "></i>
                             </div>
                         </div>
                     </div>
