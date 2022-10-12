@@ -2,6 +2,7 @@ import "./ProductDetail.scss"
 import {useParams} from "react-router-dom"
 import { useEffect, useState } from 'react';
 import * as ProductService from "../../../Services/products";
+import { Features } from "../../../components/Features/Features";
 
 export const  ProductDetail = () => {
     const [product, updateProduct] = useState([]);
@@ -18,7 +19,9 @@ export const  ProductDetail = () => {
     
     
     useEffect(() => {
-        productProvider()
+        if (product.length === 0) {
+            productProvider()
+        }
     });
     
     const { id, brand, model, price, imgUrl } = product;
@@ -30,21 +33,21 @@ export const  ProductDetail = () => {
             <div className="container">
                 <div className="columns">
                     <div className="column">
-                        <h1 className="title is-1">{ model }</h1>
-                        <h2 className="subtitle is-2">{ brand }</h2>
                         <figure className="product-detail__image">
                             <img src={imgUrl} alt={id} />
                         </figure>
                     </div>
                     <div className="column">
-                        <div className="product-detail__description">
-                            <h2 className="title is-2">Description:</h2>
-                            <h3 className="title is-3">{isSoldOut}</h3>
-                            <ul>
-                                <li>ID: { id }</li>
-                                <li>Brand: { brand }</li>
-                                <li>Model: { model }</li>
-                            </ul>
+                        <div className="product-detail__description info">
+                            <h1 className="title is-1">{ model }</h1>
+                            <h2 className="subtitle is-2">{ brand }</h2>
+                            <h3 className="title is-3 price">{isSoldOut}</h3>
+                            <h4 className="title is-4">Description:</h4>
+                            < Features product={product}/>
+                        </div>
+
+                        <div className="product-detail__actions info">
+                            <h4 className="title is-4">Actions:</h4>
                         </div>
                     </div>
                 </div>

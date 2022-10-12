@@ -5,7 +5,6 @@ import { Search } from "../search/Search";
 
 export const ProductList = (props) => {
     const { products } = props;
-
     const [productItems, SetProductsItems] = useState(products);
 
     const searchHandler = ({target: { value}}) => {

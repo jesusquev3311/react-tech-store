@@ -1,4 +1,7 @@
+@import "../../../shared/styles/variables.scss";
+
 .product-detail{
+    padding:40px 0;
     &__image{
         height: 500px;
         img{
@@ -7,7 +10,20 @@
             object-fit: contain;
         }
     }
-    .title{
-        color: #fff;
+    .info{
+        background: $gray;
+        padding: 40px;
+        box-sizing: border-box;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        .title{
+            color: #fff;
+            &.price{
+                color: $red;
+            }
+        }
+        .subtitle{
+            color: $blue;
+        }
     }
 }
