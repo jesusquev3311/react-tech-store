@@ -3,7 +3,6 @@ import "./Header.scss"
 export const Header = (props)=>{
     const { cart } = props;
 
-    const productCount = cart.length;
     return (
         <header className="App-header">
             <nav className="navbar container" role="navigation" aria-label="main navigation">
@@ -30,7 +29,7 @@ export const Header = (props)=>{
                     <div className="navbar-item">
                         <div className="buttons">
                             <div className="cart">
-                                <span className="count">{productCount}</span>
+                                <span className="count">{cart}</span>
                                 <i className="fas fa-shopping-cart "></i>
                             </div>
                         </div>

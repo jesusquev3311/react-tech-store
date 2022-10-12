@@ -13,6 +13,7 @@ import * as ProductService from "./Services/products";
 
 function App() {
   const [products, updateProducts] = useState([]);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
  
   const porductsProvider = async () => {
     const data = await ProductService.getAll()
@@ -22,7 +23,7 @@ function App() {
       return data;
   };
 
-  let cart = [];
+  const cartCount = (count = 0) => setCartItemsCount((prev) => prev + count);
 
 
   useEffect(() => {
@@ -31,11 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header cart={cart}></Header>
+      <Header cart={cartItemsCount}></Header>
       <BrowserRouter >
         <Routes>
               <Route path='/'    element={<Products products={products} />} errorElement={<ErrorPage />} />
-              <Route path='/products/:productId'    element={<ProductDetail  />} errorElement={<ErrorPage />} />
+              <Route path='/products/:productId'    element={<ProductDetail  cartCount={cartCount}/>} errorElement={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -5,7 +5,7 @@ import * as ProductService from "../../../Services/products";
 import { Features } from "../../../components/Features/Features";
 import { Actions } from "../../../components/Actions/Actions";
 
-export const  ProductDetail = () => {
+export const  ProductDetail = (props) => {
     const [product, updateProduct] = useState([]);
 
     const {productId} = useParams()
@@ -32,7 +32,7 @@ export const  ProductDetail = () => {
                     [name]: value
                 }
             });
-            console.log(product.storageCode)
+
             return
         }
 
@@ -42,7 +42,9 @@ export const  ProductDetail = () => {
             id,
             colorCode,
             storageCode
-        });
+        })
+        .then(resp => resp.json())
+        .then(value => props.cartCount(value.count));
     }
     
     
