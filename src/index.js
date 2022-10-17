@@ -1,5 +1,4 @@
 import './index.scss';
-import "https://kit.fontawesome.com/b4f25d7001.js";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

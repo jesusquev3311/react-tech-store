@@ -14,7 +14,7 @@ import * as ProductService from "./Services/products";
 function App() {
   const [products, updateProducts] = useState([]);
   const [cartItemsCount, setCartItemsCount] = useState(0);
- 
+
   const porductsProvider = async () => {
     const data = await ProductService.getAll()
       .then(resp => resp.json())
